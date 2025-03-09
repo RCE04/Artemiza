@@ -1,0 +1,67 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+    </ion-buttons>
+    <ion-title>
+      <div class="titulo-container">
+        <img src="../../assets/icon/icono.png" alt="Icono Artemiza" class="icono-titulo" />
+        <span [routerLink]="['/home']" class="titulo-boton">Artemiza</span>
+      </div>
+    </ion-title>
+    <ion-buttons slot="end">
+      <ion-button [routerLink]="['/escul']">Esculturas</ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <img src="../../assets/cabeceraModificado.jpg" alt="Cabecera" style="width: 100%; height: auto;" />
+  <ion-grid>
+
+    <!-- Fila 1: Texto a la izquierda, Imagen a la derecha -->
+    <ion-row class="ion-align-items-center" style="margin-bottom: 2rem;">
+      <ion-col size="6">
+        <h1 style="font-size: 2.5rem;">Tejas pintadas</h1>
+        <p>
+          Las tejas pintadas son una expresión artística que refleja la rica tradición arquitectónica de Castro del Rio. Inspiradas en las fachadas históricas de la localidad, cada teja es cuidadosamente decorada a mano, combinando colores vibrantes y patrones únicos para realzar la belleza y el carácter de cualquier espacio. Estas tejas no solo ofrecen una solución práctica y duradera, sino que también aportan un toque de elegancia y distinción, convirtiendo cada fachada en una auténtica obra de arte que celebra el patrimonio cultural y la creatividad del sur de España.
+        </p>
+      </ion-col>
+      <ion-col size="6" style="text-align: center;">
+        <img src="../../assets/teja.jpg" 
+             alt="Imagen a la derecha" 
+             style="width: 60%; height: auto;" />
+      </ion-col>
+    </ion-row>
+
+    <!-- Fila 2: Imagen a la izquierda, Texto a la derecha -->
+    <ion-row class="ion-align-items-center" style="margin-bottom: 2rem;">
+      <ion-col size="6">
+        <img src="../../assets/figuraDeMaderaModificada.jpg" 
+             alt="Imagen a la izquierda" 
+             style="width: 60%; height: auto;" />
+      </ion-col>
+      <ion-col size="6">
+        <h1 style="font-size: 2.5rem;">Tallados con Historias</h1>
+        <p>
+          Los tallados con historias son auténticas obras de arte que capturan la esencia de personajes y leyendas que han marcado nuestra cultura. Inspirados en mitos y figuras históricas, cada pieza se esculpe meticulosamente, convirtiéndose en un relato visual que invita a explorar la memoria colectiva. Estas creaciones, ricas en detalles y simbolismo, no solo embellecen los espacios, sino que también honran historias ancestrales.
+        </p>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+  <ion-footer class="simple-footer">
+    <ion-grid>
+      <ion-row class="footer-row">
+        <!-- Contenedor Izquierdo: Imagen e enlace -->
+        <ion-col size="auto" class="footer-left">
+          <img src="../../assets/icon/github.png" alt="Github Icon" class="footer-icon" />
+          <a href="https://github.com/RCE04" class="footer-link">GitHub</a>
+        </ion-col>
+        <!-- Contenedor Derecho: Aviso de copyright -->
+        <ion-col size="auto" class="footer-right">
+          <p class="footer-copy">Atemiza© 2025. Todos los derechos reservados.</p>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </ion-footer>
+</ion-content>

@@ -1,0 +1,95 @@
+#container {
+  text-align: center;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+#container strong {
+  font-size: 20px;
+  line-height: 26px;
+}
+
+#container p {
+  font-size: 16px;
+  line-height: 22px;
+
+  color: #8c8c8c;
+
+  margin: 0;
+}
+
+#container a {
+  text-decoration: none;
+}
+
+ion-title {
+  text-align: center; 
+}
+
+/* Contenedor del icono y texto */
+.titulo-container {
+  display: inline-flex;
+  align-items: center;  /* Alinea verticalmente ícono y texto */
+  justify-content: center;
+}
+
+/* Ajusta el tamaño y margen del ícono */
+.icono-titulo {
+  width: 6vw; /* Será más grande que 5vw y seguirá siendo responsivo */
+  margin-right: 10px;
+}
+
+/* Estilo del texto que actúa como botón/enlace */
+.titulo-boton {
+  text-decoration: none;
+  color: black;
+  font-weight: bold;
+  font-size: 1.2em;
+  cursor: pointer; /* Indica que se puede hacer clic */
+}
+
+p {
+  font-family: 'Cormorant Garamond', serif;
+}
+
+
+.simple-footer {
+  background-color: #333;  // Fondo oscuro
+  padding: 1rem 0;
+  color: #fff;
+}
+
+.footer-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;  // Separa izquierda y derecha
+}
+
+.footer-left {
+  display: flex;
+  align-items: center;
+  gap: 1rem;  // Espacio entre la imagen y el enlace
+}
+
+.footer-icon {
+  width: 40px;  // Ajusta el tamaño según necesites
+  height: auto;
+}
+
+.footer-link {
+  color: #fff;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.footer-right {
+  text-align: right;
+}
+
+.footer-copy {
+  margin: 0;
+  font-size: 0.8rem;
+}

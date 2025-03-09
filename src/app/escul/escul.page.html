@@ -1,0 +1,84 @@
+<ion-header>
+  <ion-toolbar>
+    <!-- Botones a la izquierda (vacío si no necesitas nada allí) -->
+    <ion-buttons slot="start">
+      <!-- Si no necesitas botón a la izquierda, puedes dejarlo vacío 
+           o eliminarlo por completo si no te hace falta. -->
+    </ion-buttons>
+
+    <!-- Título en el centro -->
+    <ion-title>
+      <div class="titulo-container">
+        <!-- Ícono -->
+        <img src="../../assets/icon/icono.png" alt="Icono Artemiza" class="icono-titulo" />
+        <!-- Texto con routerLink (o usa <a routerLink="/home"> si prefieres) -->
+        <span [routerLink]="['/home']" class="titulo-boton">Artemiza</span>
+      </div>
+    </ion-title>
+
+    <!-- Botones a la derecha -->
+    <ion-buttons slot="end">
+      <ion-button [routerLink]="['/escul']">Esculturas</ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <!-- Filtros en línea -->
+  <ion-grid>
+    <ion-row>
+      <ion-col size="4">
+        <ion-item>
+          <ion-label position="stacked">Nombre</ion-label>
+          <ion-input [(ngModel)]="filterName" placeholder="Buscar por nombre"></ion-input>
+        </ion-item>
+      </ion-col>
+      <ion-col size="4">
+        <ion-item>
+          <ion-label position="stacked">Precio</ion-label>
+          <ion-input [(ngModel)]="filterPrice" placeholder="Buscar por precio"></ion-input>
+        </ion-item>
+      </ion-col>
+      <ion-col size="4">
+        <ion-item>
+          <ion-label position="stacked">Estado</ion-label>
+          <ion-select [(ngModel)]="filterVendido">
+            <ion-select-option value="all">Todos</ion-select-option>
+            <ion-select-option value="unsold">No vendidos</ion-select-option>
+            <ion-select-option value="sold">Vendidos</ion-select-option>
+          </ion-select>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+  <!-- Listado de esculturas filtradas -->
+  <ion-item *ngFor="let escultura of filteredEsculturas" [routerLink]="['/detalle', escultura.id]" class="escultura-item">
+    <ion-card>
+      <img [src]="escultura.imagen" alt="Imagen de {{ escultura.nombreEscultura }}" />
+      <ion-card-header>
+        <ion-card-title>{{ escultura.nombreEscultura }}</ion-card-title>
+        <ion-card-subtitle *ngIf="!escultura.vendido">Precio: {{ escultura.precio }}</ion-card-subtitle>
+      </ion-card-header>
+      <ion-card-content>
+        <p *ngIf="escultura.vendido" class="vendido-texto">Vendido</p>
+      </ion-card-content>
+    </ion-card>
+  </ion-item>
+
+  <ion-footer class="simple-footer">
+    <ion-grid>
+      <ion-row class="footer-row">
+        <!-- Contenedor Izquierdo: Imagen e enlace -->
+        <ion-col size="auto" class="footer-left">
+          <img src="../../assets/icon/github.png" alt="Github Icon" class="footer-icon" />
+          <a href="https://github.com/RCE04" class="footer-link">GitHub</a>
+        </ion-col>
+        <!-- Contenedor Derecho: Aviso de copyright -->
+        <ion-col size="auto" class="footer-right">
+          <p class="footer-copy">Atemiza© 2025. Todos los derechos reservados.</p>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </ion-footer>
+</ion-content>

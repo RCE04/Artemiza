@@ -1,0 +1,57 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+    </ion-buttons>
+    <ion-title>
+      <div class="titulo-container">
+        <img src="../../assets/icon/icono.png" alt="Icono Artemiza" class="icono-titulo" />
+        <span [routerLink]="['/home']" class="titulo-boton">Artemiza</span>
+      </div>
+    </ion-title>
+    <ion-buttons slot="end">
+      <ion-button [routerLink]="['/escul']">Esculturas</ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content class="ion-padding">
+  <ion-button [routerLink]="['/escul']">Volver</ion-button>
+  <div class="detalle-container">
+    <img [src]="escultura?.imagen" alt="Imagen de {{ escultura?.nombreEscultura }}" class="detalle-img" />
+    <div class="detalle-info">
+      <h2>{{ escultura?.nombreEscultura }}</h2>
+      <p><strong>Precio:</strong> {{ escultura?.precio }} €</p>
+
+      <!-- Muestra la historia solo si la escultura tiene -->
+      <p *ngIf="escultura?.historia"><strong>Historia:</strong> {{ escultura?.historia }}</p>
+
+      <!-- Muestra el bloque "Vendido" solo si la escultura está vendida -->
+      <p *ngIf="escultura?.vendido">
+        <strong><span style="color: red;">Esta vendido</span></strong>
+      </p>
+      
+      <!-- Este bloque se muestra únicamente si la escultura no está vendida -->
+      <div class="acciones-container" *ngIf="!escultura?.vendido">
+        <label>¿Quieres este producto?</label>
+        <ion-button href="tel:+123456789">Contactanos</ion-button>
+      </div>
+    </div>
+  </div>
+</ion-content>
+
+<ion-footer class="simple-footer">
+  <ion-grid>
+    <ion-row class="footer-row">
+      <!-- Contenedor Izquierdo: Imagen e enlace -->
+      <ion-col size="auto" class="footer-left">
+        <img src="../../assets/icon/github.png" alt="Github Icon" class="footer-icon" />
+        <a href="https://github.com/RCE04" class="footer-link">GitHub</a>
+      </ion-col>
+      <!-- Contenedor Derecho: Aviso de copyright -->
+      <ion-col size="auto" class="footer-right">
+        <p class="footer-copy">Atemiza© 2025. Todos los derechos reservados.</p>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-footer>

@@ -1,0 +1,7 @@
+{
+  "name": "Artemiza",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular-standalone"
+}

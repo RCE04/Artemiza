@@ -1,0 +1,155 @@
+ion-title {
+  text-align: center; 
+}
+
+/* Contenedor del icono y texto */
+.titulo-container {
+  display: inline-flex;
+  align-items: center;  /* Alinea verticalmente ícono y texto */
+  justify-content: center;
+}
+
+/* Ajusta el tamaño y margen del ícono */
+.icono-titulo {
+  width: 6vw; /* Será más grande que 5vw y seguirá siendo responsivo */
+  margin-right: 10px;
+}
+
+/* Estilo del texto que actúa como botón/enlace */
+.titulo-boton {
+  text-decoration: none;
+  color: black;
+  font-weight: bold;
+  font-size: 1.2em;
+  cursor: pointer; /* Indica que se puede hacer clic */
+}
+
+ion-content {
+  --background: #f8f8f8;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  padding: 40px;
+}
+
+.detalle-container {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  max-width: 1200px;
+  width: 100%;
+  padding: 40px;
+}
+
+.detalle-img {
+  width: 50%;
+  max-height: 500px;
+  object-fit: contain; /* Se muestra la imagen completa sin recortar */
+}
+
+.detalle-info {
+  width: 50%;
+  text-align: left;
+  padding-left: 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.detalle-info h2 {
+  font-size: 32px;
+  color: #333;
+  margin-bottom: 10px;
+  font-weight: bold;
+}
+
+.detalle-info p {
+  font-size: 20px;
+  color: #666;
+  margin: 10px 0;
+}
+
+.detalle-info strong {
+  color: #222;
+}
+
+.acciones-container {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  align-items: flex-start;
+}
+
+.vendido {
+  margin-bottom: 20px;
+}
+
+.acciones-container label {
+  font-size: 18px;
+  color: #333;
+  font-weight: bold;
+  margin-top: 20px;
+}
+
+.boton {
+  background-color: black;
+  color: white;
+  padding: 15px;
+  border: none;
+  border-radius: 5px;
+  font-size: 18px;
+  cursor: pointer;
+  text-align: center;
+  font-weight: bold;
+  width: 100%;
+}
+
+.boton:hover {
+  background-color: #444;
+}
+
+.simple-footer {
+  background-color: #333;  // Fondo oscuro
+  padding: 1rem 0;
+  color: #fff;
+}
+
+.footer-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;  // Separa izquierda y derecha
+}
+
+.footer-left {
+  display: flex;
+  align-items: center;
+  gap: 1rem;  // Espacio entre la imagen y el enlace
+}
+
+.footer-icon {
+  width: 40px;  // Ajusta el tamaño según necesites
+  height: auto;
+}
+
+.footer-link {
+  color: #fff;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.footer-right {
+  text-align: right;
+}
+
+.footer-copy {
+  margin: 0;
+  font-size: 0.8rem;
+}
+
+@media (min-width: 768px) {
+  .escultura-item {
+    width: 23%; /* En pantallas grandes, 4 por fila */
+  }
+}

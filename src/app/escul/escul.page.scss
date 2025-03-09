@@ -1,0 +1,102 @@
+.escultura-item {
+  display: inline-block;
+  width: 48%;
+  margin: 1%;
+  vertical-align: top;
+}
+
+.escultura-item img {
+  width: 300px;  /* Ancho fijo */
+  height: 200px; /* Alto fijo */
+  object-fit: contain; /* La imagen se escala para que se vea completa */
+  border-radius: 8px;
+}
+
+.vendido-texto {
+  color: red;
+  font-weight: bold;
+  font-size: 1.2em;
+}
+
+.escultura-item ion-card {
+  border: none; /* Elimina el borde */
+  border-radius: 10px; /* Bordes redondeados */
+  padding: 10px; /* Espaciado interno */
+  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1); /* Sombra ligera */
+  transition: box-shadow 0.3s ease-in-out, transform 0.2s ease-in-out;
+}
+
+.escultura-item ion-card:hover {
+  transform: scale(1.02); /* Efecto de crecimiento ligero */
+  box-shadow: 4px 4px 20px rgba(0, 0, 0, 0.3); /* Sombra más intensa */
+}
+
+ion-title {
+  text-align: center; 
+}
+
+/* Contenedor del icono y texto */
+.titulo-container {
+  display: inline-flex;
+  align-items: center;  /* Alinea verticalmente ícono y texto */
+  justify-content: center;
+}
+
+/* Ajusta el tamaño y margen del ícono */
+.icono-titulo {
+  width: 6vw; /* Será más grande que 5vw y seguirá siendo responsivo */
+  margin-right: 10px;
+}
+
+/* Estilo del texto que actúa como botón/enlace */
+.titulo-boton {
+  text-decoration: none;
+  color: black;
+  font-weight: bold;
+  font-size: 1.2em;
+  cursor: pointer; /* Indica que se puede hacer clic */
+}
+
+.simple-footer {
+  background-color: #333;  // Fondo oscuro
+  padding: 1rem 0;
+  color: #fff;
+}
+
+.footer-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;  // Separa izquierda y derecha
+}
+
+.footer-left {
+  display: flex;
+  align-items: center;
+  gap: 1rem;  // Espacio entre la imagen y el enlace
+}
+
+.footer-icon {
+  width: 40px;  // Ajusta el tamaño según necesites
+  height: auto;
+}
+
+.footer-link {
+  color: #fff;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.footer-right {
+  text-align: right;
+}
+
+.footer-copy {
+  margin: 0;
+  font-size: 0.8rem;
+}
+
+@media (min-width: 768px) {
+  .escultura-item {
+    width: 23%; /* En pantallas grandes, 4 por fila */
+  }
+}
