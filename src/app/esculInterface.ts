@@ -5,4 +5,6 @@ export interface Escultura {
     vendido: boolean;
     historia: string;
     imagen: string;
+    ancho:string;
+    alto:string;
   }

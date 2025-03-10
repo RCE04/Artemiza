@@ -23,6 +23,8 @@
       <h2>{{ escultura?.nombreEscultura }}</h2>
       <p><strong>Precio:</strong> {{ escultura?.precio }} €</p>
 
+      <p><strong>Dimensiones</strong> {{ escultura?.alto }}x{{escultura?.ancho}} cm</p>
+
       <!-- Muestra la historia solo si la escultura tiene -->
       <p *ngIf="escultura?.historia"><strong>Historia:</strong> {{ escultura?.historia }}</p>
 
