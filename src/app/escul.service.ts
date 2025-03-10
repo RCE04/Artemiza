@@ -7,7 +7,7 @@ import { Escultura } from './esculInterface';
   providedIn: 'root'
 })
 export class EsculService {
-  private apiUrl = 'https://localhost:7097/api/Esculturas';
+  private apiUrl = 'https://localhost:7043/api/Esculturas';
 
   constructor(private http: HttpClient) {}
 
