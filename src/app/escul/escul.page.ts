@@ -11,15 +11,14 @@ import { Escultura } from '../esculInterface';
   templateUrl: './escul.page.html',
   styleUrls: ['./escul.page.scss'],
   standalone: true,
-  imports: [IonFooter, 
-    IonIcon,
-    IonItem,
+  imports: [
+    CommonModule,
+    FormsModule,
     IonContent,
     IonHeader,
     IonTitle,
     IonToolbar,
-    CommonModule,
-    FormsModule,
+    IonItem,
     IonList,
     IonThumbnail,
     IonLabel,
@@ -32,20 +31,26 @@ import { Escultura } from '../esculInterface';
     IonGrid,
     IonRow,
     IonButtons,
+    IonIcon,
     IonInput,
     IonSelect,
     IonSelectOption,
-    IonCol
+    IonCol,
+    IonFooter
   ]
 })
 export class EsculPage implements OnInit {
   esculturas: Escultura[] = [];
 
-  // Propiedades para los filtros
+  // Propiedades para filtros
   filterName: string = '';
   filterPrice: string = '';
-  // Para el estado, se usan tres valores: 'all' (todos), 'sold' (vendidos) y 'unsold' (no vendidos)
+  // Para el estado: 'all' (todos), 'sold' (vendidos) o 'unsold' (no vendidos)
   filterVendido: string = 'all';
+  filterAlto: string = '';
+  filterAncho: string = '';
+  // Orden de precio: 'asc' o 'desc'
+  orderPrice: string = 'asc';
 
   constructor(private esculturaService: EsculService) {}
 
@@ -59,33 +64,57 @@ export class EsculPage implements OnInit {
     });
   }
 
-  // Getter que devuelve las esculturas filtradas y ordenadas
-  get filteredEsculturas(): Escultura[] {
-    let filtered = this.esculturas;
+  // Getter que aplica todos los filtros y ordena por precio
+// Getter que aplica todos los filtros y ordena primero por estado (no vendidos al inicio) y luego por precio
+get filteredEsculturas(): Escultura[] {
+  let filtered = this.esculturas;
 
-    // Filtro por nombre
-    if (this.filterName) {
-      filtered = filtered.filter(e =>
-        e.nombreEscultura.toLowerCase().includes(this.filterName.toLowerCase())
-      );
-    }
-    // Filtro por precio
-    if (this.filterPrice) {
-      filtered = filtered.filter(e =>
-        e.precio.toLowerCase().includes(this.filterPrice.toLowerCase())
-      );
-    }
-    // Filtro por estado de venta
-    if (this.filterVendido !== 'all') {
-      const isSold = this.filterVendido === 'sold';
-      filtered = filtered.filter(e => e.vendido === isSold);
-    }
-    // Ordenar para que los no vendidos aparezcan primero y los vendidos al final
-    filtered.sort((a, b) => {
-      if (a.vendido === b.vendido) return 0;
-      return a.vendido ? 1 : -1;
-    });
-
-    return filtered;
+  // Filtro por nombre
+  if (this.filterName.trim()) {
+    filtered = filtered.filter(e =>
+      e.nombreEscultura.toLowerCase().includes(this.filterName.toLowerCase())
+    );
   }
+
+  // Filtro por precio (substring)
+  if (this.filterPrice.trim()) {
+    filtered = filtered.filter(e =>
+      e.precio.toLowerCase().includes(this.filterPrice.toLowerCase())
+    );
+  }
+
+  // Filtro por estado de venta
+  if (this.filterVendido !== 'all') {
+    const isSold = this.filterVendido === 'sold';
+    filtered = filtered.filter(e => e.vendido === isSold);
+  }
+
+  // Filtro por Alto
+  if (this.filterAlto.trim()) {
+    filtered = filtered.filter(e =>
+      e.alto.toLowerCase().includes(this.filterAlto.toLowerCase())
+    );
+  }
+
+  // Filtro por Ancho
+  if (this.filterAncho.trim()) {
+    filtered = filtered.filter(e =>
+      e.ancho.toLowerCase().includes(this.filterAncho.toLowerCase())
+    );
+  }
+
+  // Ordenar primero para que los no vendidos aparezcan primero, y luego por precio
+  filtered.sort((a, b) => {
+    // Ordenar por estado: si uno está vendido y el otro no, el no vendido debe aparecer primero.
+    if (a.vendido !== b.vendido) {
+      return a.vendido ? 1 : -1;
+    }
+    // Si ambos tienen el mismo estado, ordenar por precio
+    const priceA = parseFloat(a.precio) || 0;
+    const priceB = parseFloat(b.precio) || 0;
+    return this.orderPrice === 'asc' ? priceA - priceB : priceB - priceA;
+  });
+
+  return filtered;
+}
 }
